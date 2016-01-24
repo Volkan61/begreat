@@ -37,3 +37,9 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('hello', 'hello@index');
 
 Route::get('/hello/{name}', 'Hello@show');
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+});
