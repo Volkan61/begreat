@@ -35,3 +35,5 @@ Route::group(['middleware' => ['web']], function () {
 
 
 Route::get('hello', 'hello@index');
+
+Route::get('/hello/{name}', 'Hello@show');

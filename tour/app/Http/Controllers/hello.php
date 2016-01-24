@@ -18,4 +18,10 @@ class hello extends Controller
     }
 
 
+
+    public function show($name)
+    {
+        return view('hello',array('name' => $name));
+    }
+
 }
