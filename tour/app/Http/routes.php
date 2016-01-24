@@ -29,3 +29,8 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
     //
 });
+
+
+Route::get('/hello',function(){
+    return 'Hello World!';
+});
