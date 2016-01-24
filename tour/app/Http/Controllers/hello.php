@@ -9,5 +9,13 @@ use App\Http\Controllers\Controller;
 
 class hello extends Controller
 {
-    //
+
+
+
+    public function index()
+    {
+        return 'hello world from controller : )';
+    }
+
+
 }
