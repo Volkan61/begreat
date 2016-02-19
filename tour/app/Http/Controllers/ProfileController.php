@@ -52,7 +52,7 @@ class ProfileController extends Controller
     public function update() {
 
 
-        $profile  = Profile::find(Auth::user()->id)->first();
+        $profile  = Profile::where('user_id',Auth::user()->id)->first();
         $profile->fill(Input::all());
         $profile->save();
 
