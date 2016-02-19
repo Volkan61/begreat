@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Profile;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -37,7 +38,9 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+
+        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
+
     }
 
     /**
@@ -63,10 +66,43 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+
+
+// so wird ohne user id gespeichert,
+      //  $profile = Profile::create([
+    //        'first_name' => $data['firstname'],
+    //       'last_name' => $data['lastname'],
+    //        'adress' => $data['adress'],
+     //       'gender' => $data['gender'],
+     //       ]);
+
+
+
+
+
+        // Falls ein Eintrag ein Fremdschlüssel beinhaltet, dann Abspeichern immmer über die Save Methode ..
+
+      $profile =  new Profile(['first_name' => $data['firstname'],'last_name' => $data['lastname']]);
+
+
+
+
+
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+            'password' => bcrypt($data['password']),]);
+
+
+
+        $user->profile()->save($profile); // Erstellt oder aktualisiert einen neuen Eintrag
+
+
+
+
+
+        return $user;
     }
 }

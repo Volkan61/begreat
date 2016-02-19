@@ -66,6 +66,81 @@
                             </div>
                         </div>
 
+
+
+                        <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Vorname</label>
+
+                            <div class="col-md-6">
+                                <input class="form-control" name="firstname">
+
+                                @if ($errors->has('firstname'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('firstname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Nachname</label>
+
+                            <div class="col-md-6">
+                                <input class="form-control" name="lastname">
+
+                                @if ($errors->has('lastname'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('lastname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                            <div class="form-group{{ $errors->has('adress') ? ' has-error' : '' }}">
+                                <label class="col-md-4 control-label">Adresse</label>
+
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="adress" value="{{ old('adress') }}">
+
+                                    @if ($errors->has('adress'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('adress') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+
+                        <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Geschlecht</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="gender" value="{{ old('gender') }}">
+
+                                @if ($errors->has('gender'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
