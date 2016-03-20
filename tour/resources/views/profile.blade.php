@@ -15,6 +15,9 @@
                         {{$profile->gender}} <br>
 
 
+
+                        {{link_to_route('profile.update','Edit Profil')}}
+
                     </div>
                 </div>
             </div>

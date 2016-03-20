@@ -83,9 +83,9 @@ class AuthController extends Controller
 
         // Falls ein Eintrag ein Fremdschlüssel beinhaltet, dann Abspeichern immmer über die Save Methode ..
 
-      $profile =  new Profile(['first_name' => $data['firstname'],'last_name' => $data['lastname']]);
+      $profile =  new Profile(['first_name' => $data['firstname'],'last_name' => $data['lastname']]); // erstellt keinen eintrag in der datenbank
 
-
+// user_id wird automatiasch eingefügt
 
 
 
@@ -99,7 +99,7 @@ class AuthController extends Controller
 
         $user->profile()->save($profile); // Erstellt oder aktualisiert einen neuen Eintrag
 
-
+       // in profil kommt der eintrag mit der id von user
 
 
 

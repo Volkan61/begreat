@@ -24,6 +24,9 @@
             margin-right: 6px;
         }
     </style>
+
+    {{Html::style('vendor/bootstrap/css/bootstrap.css')}}
+
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default">
@@ -65,6 +68,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                                 <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-sign-out"></i>My Profile</a></li>
+                                <li><a href="{{ url('/tournaments') }}"><i class="fa fa-btn fa-sign-out"></i>Tournaments</a></li>
 
                             </ul>
                         </li>
