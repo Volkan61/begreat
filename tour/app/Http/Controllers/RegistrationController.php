@@ -31,7 +31,7 @@ class RegistrationController extends Controller
         $registered_users = $tournament->registrations()->get();
         $tournaments ="";
 
-        return view('registrations.index',['users' => $registered_users]);
+        return view('registrations.index',['users' => $registered_users,'tournament'=>$tournament]);
     }
 
 
@@ -40,7 +40,11 @@ class RegistrationController extends Controller
 
     public function add_prepare($id)
     {
-        return view('registrations.add',['tournament_id' => $id]);
+
+
+        $tournament = Tournament::find($id);
+
+        return view('registrations.add',['tournament_id' => $id,'tournament'=>$tournament]);
         // methoden parameter request apramter
     }
 

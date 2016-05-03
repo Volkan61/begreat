@@ -1,6 +1,6 @@
-@extends('tournament.layout.info',['tournament' => $tournament])
+@extends('layouts.app')
 
-@section('content2')
+@section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -19,18 +19,9 @@
                             </thead>
 
 
-
-                            @foreach ($users as $registered_user)
-
-                                <tr>
-                                    <td>{{$registered_user->user->name}}</td>
-                                    <td>{{$registered_user->user->email}}</td>
+                            <td>{{$users}}</td>
 
 
-
-
-                                </tr>
-                            @endforeach
 
                             <tbody>
 
@@ -42,7 +33,6 @@
                         </table>
 
 
-                        {{link_to_route('tournament.new','Neues Turnier')}}
 
                     </div>
                 </div>

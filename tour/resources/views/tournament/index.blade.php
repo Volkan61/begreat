@@ -27,7 +27,8 @@
                             @foreach ($tournaments as $tournament)
 
                                 <tr>
-                                    <td>{{$tournament->name}}</td>
+                                    <td>{{link_to_route('tournament.info',$tournament->name,[$tournament->id])}}
+                                    </td>
                                     <td>{{$tournament->description}}</td>
                                     <td>{{$tournament->game}}</td>
 

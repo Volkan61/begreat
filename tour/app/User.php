@@ -34,7 +34,7 @@ class User extends Authenticatable
 
     public function tournaments()
     {
-        return $this->hasMany('App\Registrations');
+        return $this->hasMany('App\Registration');
     }
 
 

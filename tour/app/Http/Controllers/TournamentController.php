@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Tournament;
 use App\User;
+use App\Registration;
+
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -83,13 +85,29 @@ class TournamentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
 
         $profile ="";
-        return view('tournament/add',['profile' =>$profile]);
+
+        $tournament = Tournament::find($id);
+        
+        return view('tournament.info',['tournament' =>$tournament]);
 
     }
+
+
+
+
+    public function add()
+    {
+
+
+
+        return view('tournament.add');
+
+    }
+
 
     /**
      * Show the form for editing the specified resource.

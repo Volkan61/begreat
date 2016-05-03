@@ -42,7 +42,34 @@ Route::get('/', function () {
 //http://stackoverflow.com/questions/25061687/two-foreign-keys-how-to-map-with-laravel-eloquent
 
 
+// Dizitube
 
+
+Route::get('dizi', 'SerieController@index');
+
+Route::get('dizi/add', 'SerieController@add');
+
+Route::get('dizi/season/', 'SeasonController@index');
+
+Route::get('dizi/season/add', 'SeasonController@add');
+
+
+
+
+Route::get('bs/find_episodes_proxy', 'IndexController@index');
+
+
+
+Route::get('bs/find', 'SerieController@find_series');
+
+
+Route::get('bs/find_seasons', 'SeasonController@find_seasons_for_series');
+
+
+Route::get('bs/find_episodes', 'EpisodeController@find_episodes_for_seasons');
+
+
+//
 
 
 
@@ -64,28 +91,32 @@ Route::group(['middleware' => 'web'], function () { // Authentifizierte Actions
     Route::get('/tournaments', 'TournamentController@index');
     Route::post('/tournaments/new', 'TournamentController@store')->name('tournament.new');
 
-    Route::get('/tournaments/new', 'TournamentController@show')->name('tournament.new2');
+    Route::get('/tournaments/new', 'TournamentController@add')->name('tournament.new2');
 
 
 
     Route::get('/tournaments/delete/', 'TournamentController@destroy')->name('tournament.delete');
 
+    Route::get('/tournaments/info/{id}', 'TournamentController@show')->name('tournament.info');
 
 
 
     //------------RESULT
-    Route::get('/results/index', 'ResultsController@index')->name('results.index');
-    Route::post('/results/index', 'ResultsController@index')->name('results.index');
+    Route::get('/results/index/{id}', 'ResultsController@index')->name('results.index');
+    Route::post('/results/index/{id}', 'ResultsController@index')->name('results.index');
 
     Route::get('/results/start/{id}', 'ResultsController@start')->name('results.start');
     Route::post('/results/start/{id}', 'ResultsController@start')->name('results.start');
 
 
+    Route::get('/results/crawler', 'ResultsController@Crawler')->name('results.index');
+    Route::get('/results/crawler2', 'ResultsController@Crawler2')->name('results.index');
 
 
 
 
     Route::post('registration/step/0/{id}', 'RegistrationController@add_prepare')->name('registraion.add');
+    Route::get('registration/step/0/{id}', 'RegistrationController@add_prepare')->name('registraion.add');
 
 
 
@@ -99,6 +130,7 @@ Route::group(['middleware' => 'web'], function () { // Authentifizierte Actions
     //Route::get('/tournaments/registrations', 'RegistrationController@index');
 
     Route::post('/registration/{id}', 'RegistrationController@index')->name('registrations');
+    Route::get('/registration/{id}', 'RegistrationController@index')->name('registrations');
 
 
 

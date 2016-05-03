@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('tournament.layout.info',['tournament' => $tournament])
 
-@section('content')
+@section('content2')
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -23,7 +23,6 @@
 
 
 
-//javascript sendet http request
 
 
 
