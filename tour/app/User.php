@@ -38,6 +38,14 @@ class User extends Authenticatable
     }
 
 
+    public function seen_episodes()
+    {
+
+        return $this->belongsToMany('App\Episode', 'user2epi', 'user_id', 'episode_id');
+
+    }
+
+
 
 
 }

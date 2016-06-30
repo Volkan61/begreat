@@ -56,8 +56,6 @@ Route::get('dizi/season/add', 'SeasonController@add');
 
 
 
-Route::get('bs/find_episodes_proxy', 'IndexController@index');
-
 
 
 Route::get('bs/find', 'SerieController@find_series');
@@ -77,14 +75,32 @@ Route::get('bs/find_episodes', 'EpisodeController@find_episodes_for_seasons');
 Route::get('hello', 'hello@index');
 Route::get('/hello/{name}', 'Hello@show');
 
+Route::post('bs/description_update/{id}', 'DescriptionSerieController@update')->name('description_update');
+Route::get('bs/description_update/{id}', 'DescriptionSerieController@update')->name('description_update');
 
 
 Route::group(['middleware' => 'web'], function () { // Authentifizierte Actions
 
   //  Route::auth();
 
+
+    Route::post('bs/check_as_seen', 'IndexController@check_as_seen')->name('index.check_as_seen');
+
+    Route::post('bs/description_update', 'DescriptionSerieController@update')->name('description_update');
+
+
+    Route::get('bs/seasons/{id}/{season_nr}', 'IndexController@season')->name('index.season')->where('id', '[0-9]+')->where('season_nr', '[0-9]+');
+
+    Route::post('bs/seasons/', 'IndexController@season')->name('index.season');
+
+
     Route::get('/home', 'HomeController@index');
 
+
+
+
+    Route::get('bs/series', 'IndexController@index')->name('index.page');
+    Route::post('bs/series', 'IndexController@index')->name('index.page');
 
 
     //-----------
